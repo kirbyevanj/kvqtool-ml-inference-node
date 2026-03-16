@@ -1,0 +1,6 @@
+grpcio==1.71.0
+grpcio-tools==1.71.0
+protobuf==5.29.4
+onnxruntime==1.21.1
+numpy==2.2.4
+Pillow==11.2.1

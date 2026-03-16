@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package kvqtool.inference;
+
+option go_package = "github.com/kirbyevanj/kvqtool-kvq-models/proto";
+
+service InferenceService {
+  rpc DetectScenes (SceneDetectionRequest) returns (SceneDetectionResponse);
+  rpc ComputeSalience (SalienceRequest) returns (SalienceResponse);
+}
+
+message SceneDetectionRequest {
+  repeated bytes frames = 1;
+  int32 width = 2;
+  int32 height = 3;
+}
+
+message SceneDetectionResponse {
+  repeated float probabilities = 1;
+}
+
+message SalienceRequest {
+  bytes frame = 1;
+  int32 width = 2;
+  int32 height = 3;
+}
+
+message SalienceResponse {
+  repeated float salience_map = 1;
+  int32 map_width = 2;
+  int32 map_height = 3;
+}
